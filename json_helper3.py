@@ -41,7 +41,6 @@ def load_pickle(pickle_file):
         print(keys, '=>', db[keys])
     pickle_file.close()
 
-
 '''
 read_all_json_files('/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/')
 write_pickle('/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/mario.json/')
