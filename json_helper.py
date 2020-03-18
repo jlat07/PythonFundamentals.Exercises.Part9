@@ -11,47 +11,34 @@ def read_json(path):
 
 
 # PART B
-def read_all_json_files(path):
+def read_all_json_files(json_root):
     db_list = []
     
-    for folder in os.listdir(path):
-        files = os.path.join(path, folder)
-        a = read_json(files)
-        db_list.append(eval(json.dumps(a)))
-    
+    for root, _, files in os.walk(json_root):
+        for f in files:
+            if f.endswith('.json'):
+                json_content = read_json(os.path.join(json_root, f))
+                db_list.append(json_content)
     return db_list
 
 
-# PART C
-def write_pickle(data_source_path, output_name):
-    db = read_json(data_source_path)
-    f = open(output_name, 'wb')  # (wb) write-binary mode
-    pickle.dump(db, f)
-    f.close()
+# PART C;
+
+def write_pickle(file_name, data):
+    with open(file_name, "wb") as handler:
+        pickle.dump(data, handler)
 
 
 # PART D
-def load_pickle(filename):
-    f = open(filename, 'rb')
-    b = pickle.load(f)
-    new_dict = (eval(json.dumps(b)))
-    f.close()
-    return new_dict
-
-
-# Part D v2
-def loadpickle(pickle_file):
-    f = open(pickle_file, 'rb')  # (rb)read-binary mode
-    a = pickle.load(f)
-    db = (eval(json.dumps(a)))
-    for keys in db:
-        print(keys, '=>', db[keys])
-    f.close()
+def load_pickle(pickle_file):
+    with open(pickle_file, 'rb') as handler:
+        data = pickle.load(handler)
+    return data
 
 
 '''
 read_all_json_files('/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/')
-write_pickle('/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/mario.json', 'super_smash_characters.pickle')
+write_pickle('super_smash_characters.pickle', '/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/mario.json')
 load_pickle('/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/super_smash_characters.pickle')
 '''
 

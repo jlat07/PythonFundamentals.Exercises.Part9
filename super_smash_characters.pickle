@@ -1,26 +1,3 @@
-(dp0
-Vname
-p1
-VMario
-p2
-sVfinal_smash
-p3
-VMario Finale
-p4
-sVdown_special
-p5
-VF.L.U.D.D.
-p6
-sVside_special
-p7
-VCape
-p8
-sVup_special
-p9
-VSuper Jump Punch
-p10
-sVneutral_special
-p11
-VFireball
-p12
-s.
+S'/Users/jthompson/dev/PythonFundamentals.Exercises.Part9/data/super_smash_bros/mario.json'
+p0
+.
