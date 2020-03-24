@@ -9,7 +9,6 @@ def read_json(path):
         data = json.load(f)
         return data
 
-
 # PART B
 def read_all_json_files(json_root):
     db_list = []
